@@ -1,0 +1,42 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.container {
+  background-color: blue;
+  display: flex;
+  flex-flow: row wrap;
+  /* flex-flow: column wrap; */
+  /* flex-wrap: wrap; */
+  /* justify-content: space-evenly;
+  height: 100vh;
+  align-content: baseline; */
+}
+.item {
+  flex: 1 1 200px;
+  border: thin solid #000;
+  background-color: aqua;
+  padding: 10px;
+}
+/* .item:nth-child(2) {
+  font-size: 1.5rem;
+}
+.item:nth-child(4) {
+  order: 5;
+}
+.item:nth-child(7) {
+  order: 7;
+}
+.item:nth-child(3) {
+  align-self: center;
+} */
+
+/* 
+  Justify-content:
+
+   align-items:
+   align-content 
+*/

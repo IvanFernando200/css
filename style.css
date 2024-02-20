@@ -1,0 +1,698 @@
+/* @import : usarlo es una mala practica; Porque tiene un comportamiento bloqueante a la hora de que el navegador lee esta instruccion */
+@import url("another-style.css");
+/* TIPOS DE SELECTORES: */
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+pre {
+  color: #fff;
+  background-color: #000;
+  white-space: pre-wrap;
+}
+h3 {
+  color: #900;
+  text-decoration: underline;
+}
+nav section a {
+  color: #900;
+}
+/* SELECTORES BASICOS */
+h1,
+.resume {
+  font-family: cursive;
+}
+h4::before {
+  content: "☉ ";
+}
+/* seleccion por etiqueta */
+span {
+  font-style: italic;
+}
+/* seleccion por id */
+#color-pink {
+  color: pink;
+}
+/* seleccion por clase */
+.color-yellow {
+  color: yellow;
+}
+.bg-black {
+  background: black;
+}
+/* SELECTORES AVANZADOS: */
+/* selectores hijos directos especificos */
+.hijos-directos > li {
+  background: #f0f;
+}
+/* selector hijos descendentes(hijos & nietos>>segun la especificacion) */
+.hijos-descendentes b {
+  background: #f0f;
+}
+/* Los selectores de hermanos van a aplicar a los elementos que son hermanos y que esten por debajo del elemento de referencia*/
+.hermanos-general ~ li {
+  background: #f0f;
+}
+/* selector de hermanos en adyacentes: aplica solo al primer elemento despues de mi elementos de referencia */
+.hermanos-adyacentes + li {
+  background: #f0f;
+}
+/* Selectores de ATRIBUTOS */
+.selectores-atributos a[href] {
+  color: #529;
+}
+.selectores-atributos a[role="link"] {
+  background-color: #ddd;
+}
+a[href="#index"] {
+  text-decoration: none;
+  font-size: 2em;
+}
+/* El comodin del * aplica el estilo si CONTINE el texto en cuestion */
+.selectores-atributos a[href*="getbootstrap"] {
+  text-decoration: none;
+}
+/* El comodin del ^ aplica el estilo si contien el texto en cuestion a INICIO */
+.selectores-atributos a[href^="http://"]
+{
+  font-family: cursive;
+}
+/* El comodin del $ aplica el estilo si contiene el texto en cuestion, al final */
+.selectores-atributos a[href$=".co/#css-syntax"] {
+  color: green;
+}
+/* El comodin del ~ aplica el estilo si contiene el texto en cuestion separa por espaicos ejm: class="color_black margin_2px display_inline"*/
+.selectores-atributos a[class~="atributo_style"] {
+  text-shadow: 2px 1px 3px #900;
+}
+
+/* El comodin del | aplica el estilo si contiene el texto en cuestion en una lista separada por espacios y que despues del texto en cuetion venga un guion medio -*/
+.selectores-atributos a[class|="menu"] {
+  font-weight: bolder;
+}
+
+/* Selector universal */
+.selector-universal > * {
+  font-size: 1.5em;
+}
+
+/* PSEUDO CLASES */
+
+/* Para elementos de formulario */
+.form-pseudoclases *:required {
+  border-color: yellow;
+}
+.form-pseudoclases *:valid {
+  border-color: green;
+}
+.form-pseudoclases *:invalid {
+  border-color: red;
+}
+.form-pseudoclases *:focus {
+  color: darkcyan;
+}
+.form-pseudoclases *:disabled {
+  background-color: burlywood;
+}
+
+/* Para enlaces */
+
+.menu-pseudoclases a:visited {
+  color: #666;
+}
+/* :link :active  */
+.menu-pseudoclases a:hover {
+  color: lime;
+  /* El estado hover funciona para cualquier etiqueta */
+}
+#index:target {
+  background: lightgreen;
+}
+.clr_bfd {
+  color: #e8005daa;
+}
+.clr_bfd code {
+  color: white;
+  background: #000;
+}
+/* nth-child */
+.lista-pseudoclases li:nth-child(3) {
+  color: navy;
+}
+.lista-pseudoclases li:nth-child(3n) {
+  text-shadow: 2px 1px 3px #14eb00;
+}
+/* Pares */
+.lista-pseudoclases li:nth-child(even) {
+  background: yellow;
+}
+/* Impares */
+.lista-pseudoclases li:nth-child(odd) {
+  background: orangered;
+}
+/*nth-of-type*/
+
+.articulo-pseudoclases p:first-of-type {
+  color: aqua;
+}
+.articulo-pseudoclases p:nth-of-type(3) {
+  color: greenyellow;
+}
+.articulo-pseudoclases p:last-of-type {
+  color: salmon;
+}
+.articulo-pseudoclases *:not(p) {
+  background: beige;
+}
+
+/* PSEUDO ELEMENTOS */
+/* ::after, ::before, ::first-letter, ::first-line, ::selection , ::placeholder*/
+.p-pseudoelementos::first-line {
+  color: #14eb00;
+}
+.p-pseudoelementos::first-letter {
+  font-size: 2em;
+  font-family: cursive;
+  font-weight: bolder;
+  color: #529;
+}
+.p-pseudoelementos b::before {
+  content: "🫸";
+}
+.p-pseudoelementos b::after {
+  content: "🔞🔞";
+}
+/* Applica para todos */
+::selection {
+  background-color: #33254b;
+  color: #14eb009c;
+}
+.p-pseudoelementos::selection {
+  font-family: cursive;
+  color: yellow;
+  background: #000;
+  /* Se aplica a la hora de seleccionar */
+}
+.input-pseudoelementos::placeholder {
+  color: #14eb00;
+}
+
+/* Agrupar selectores (,) */
+.form-agrupar-selectores input[type="text"],
+.form-agrupar-selectores input[type="email"],
+.form-agrupar-selectores textarea {
+  border: red 3px dashed;
+  background: #000;
+  font-size: 1.3em;
+  display: block;
+  width: 300px;
+  color: white;
+}
+
+/* 
+La espedifidad es el peso que tiene un selector cuando hay conflicto de estilos. Se calcula de la siguiente forma:
+Etiquetas y pseudoelementos ------------0,0,0,1
+Clases, atributos y pseudoclases -------0,0,1,0
+Identificadores ------------------------0,1,0,0
+Estilos en linea -----------------------1,0,0,0
+!important --------------Rompe la especificidad
+*/
+.bg-palegreen {
+  background: palegreen !important;
+}
+#bg-red {
+  background: #900;
+}
+.cita-marco {
+  background: #529;
+  font-size: 32px;
+  border: 4px dotted #f0f;
+}
+/* Inherit para heredar una propieda no heredable */
+/* Inicial para devolver el valor inicial de una propiedad heredable */
+.cita-marco cite {
+  background: #f0f;
+  background: inherit;
+  font-size: 25px;
+  font-size: initial;
+  border: inherit;
+}
+
+/* MODELO DE CAJA ( BOX SIZING) */
+/* 
+Caja de Linea:
+ - Ocupan el espacio necesario para mostrar su contenido.
+ - No tienen dimensiones modificables ( alto, ancho).
+ - Permiten otros elementos a su lado.
+ - Padding y margin solo empujan a elementos adyacentes en horizontal, NUNCA EN VERTICAL.
+Caja de Bloque:
+ - Ocupa todo el ancho disponible, lo que genera saltos de linea.
+ - Tienen dimensiones modificables (alto, ancho).
+ - No permiten otros elementos a su lado (aunque especifique un ancho, sigue ocupando todo el espacio disponible a lo ancho, generando saltos de linea).
+*/
+.span-inline {
+  border: thick solid rgb(255, 106, 0, 0.4);
+  padding: 50px;
+  margin: 50px;
+  /* display: none; */
+}
+.span-inline-2 {
+  border: thick solid rgb(255, 106, 0, 0.4);
+  padding: 50px;
+  margin: 50px;
+  /* display: none; */
+  visibility: hidden;
+}
+.box-model {
+  border: medium solid red;
+  /* thin-1px ; medium-3px ; thick-5px */
+  background: mediumturquoise;
+  border-width: 10px 5px medium 15px;
+  border-color: blue purple green yellow;
+  border-style: solid dotted dashed double;
+
+  /* border: medium solid red; */
+  /* top right buttom left */
+  /* top-buttom right left */
+  /* top-buttom right-left */
+  /* top-buttom-right-left */
+
+  border-radius: 10px 20px 50px;
+  /* top-left top-right buttom-right buttom-left */
+  /* top-left top-right_buttom-left buttom-right */
+  /* top-left_buttom-right top-rigth_buttom-left */
+  margin: 40px;
+  padding: 10px;
+  width: 300px;
+}
+/* body {
+  margin: 0;
+} */
+
+.div-overflow {
+  height: 300px;
+  width: 600px;
+  border: medium solid #aa0;
+  background-image: url("https://th.bing.com/th/id/R.f5d9d80d1a1c777d16a4ecdab28a1c5f?rik=DsHgtxyBNuVoXQ&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2f6%2f67%2fA_beautiful_girl_in_her_black_dress.jpg&ehk=1MBlULCAS9uKQpMLcmhX8OMwG8LU4HjQVaXyR8zmcQ4%3d&risl=&pid=ImgRaw&r=0");
+  color: #f0f;
+  background-position: 0 -90px;
+  background-repeat: repeat;
+  background-size: cover;
+  /* overflow: visible;  ----default */
+  /* overflow: scroll */
+  overflow: auto; /*auto -----pro*/
+  /* overflow: hidden */
+}
+
+/* box-sizing: border-box */
+/* html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+} */
+
+/* FLOAT AND CLEAR */
+.div-float {
+  border: 2px solid #000;
+}
+.div-float img {
+  width: 150px;
+  float: left;
+  margin: 5px;
+}
+
+/* ////////////////////////// --Ya no se usa*/
+.container-floats {
+  background-color: crimson;
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.clear-fix {
+  clear: both;
+}
+/* COLAPSO DE MARGENES verticales*/
+.margin-collapse {
+  background: skyblue;
+}
+.margin-collapse section {
+  border: 2px solid #000;
+  margin-top: 16px;
+  margin-bottom: 2em;
+}
+/* CENTRADO DE CAJAS */
+.sitio-web {
+  width: 200px;
+  border: medium solid #000;
+  color: mediumspringgreen;
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  background: mediumvioletred;
+}
+/* POSICIONAMIENTO (POSITION) */
+/* 
+Tipos de Posicionamiento:
+ - static(default)
+ - relative
+ - absolute
+ - fixed
+ - sticky
+
+Para mover los elementos posicionados se activan las propiedades:
+ - top(vertical - eje Y)
+ - bottom(vertical - eje Y)
+ - left(horizontal - eje X)
+ - right(horizontal - eje X)
+ - z-index(profundidad - eje Z)
+
+ Las propiedades top y left van a tener prefernecias por sobre bottom y right respectivamente.
+ 
+ Estas 5 propiedades n ofuncionan con el valor de static.
+ */
+/* z-index */
+.z-index-father {
+  height: 100px;
+  width: 100px;
+  background: darkcyan;
+  position: relative;
+}
+.z-index-child {
+  height: 25px;
+  width: 25px;
+  background: mediumvioletred;
+  position: relative;
+  top: -10px;
+  left: -10px;
+  z-index: -6;
+}
+.position-default_static,
+.position-test {
+  height: 100px;
+}
+.position-default_static {
+  background: mediumturquoise;
+}
+.position-test {
+  background: mediumorchid;
+  position: static;
+  position: relative;
+  position: absolute;
+  position: fixed;
+  position: sticky;
+  top: 5px;
+  outline: medium solid yellow;
+}
+.box-child {
+  background: mediumspringgreen;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+/* Cabecerea con sticky */
+/* .sticky-top {
+  background: midnightblue;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 5px;
+} */
+/* hero emage----easy */
+/* SLIDE ------sticky */
+.slides {
+  font-family: cursive;
+  font-size: 10px;
+}
+.slides h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.slide-title {
+  border: thin solid red;
+  background: #e8005daa;
+  padding: 10px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+  position: sticky;
+  top: 0;
+}
+.slide {
+  border-radius: 5px;
+}
+.slide:nth-child(even) {
+  background: mediumturquoise;
+}
+.slide:nth-child(odd) {
+  background: mediumspringgreen;
+}
+.slide > .slide-content > p {
+  display: inline-block;
+  width: 12em;
+}
+
+/* VENTANA MODAL */
+.modal-window {
+  background: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 10px;
+  opacity: 0.5;
+  display: none;
+  color: white;
+}
+.modal-window a {
+  color: red;
+}
+.modal-title {
+  font-size: 12px;
+  text-align: center;
+  margin: 0;
+  margin-top: 5px;
+}
+.modal-window:target {
+  display: block;
+}
+/* ***** Colores CSS  ****** */
+.colores-rgb-hexagecimal {
+  width: 100px;
+  height: 100px;
+  background-color: #f00f;
+  border-radius: 50%;
+}
+.hsl-cologram {
+  width: 400px;
+  height: auto;
+}
+.color-hrs {
+  width: 100px;
+  height: 100px;
+  /* background-color: hsl(color, intensidad-grises, luminosidad--(blanco y negro)); */
+  background-color: hsl(180, 100%, 30%);
+  background-color: hsla(120, 100%, 50%, 0.4);
+  border-radius: 50%;
+  /* opacity: .4; */
+}
+
+:root {
+  --color: #f0f;
+}
+.ch-10 {
+  --paddin-size: 3ch;
+  --num-ch: 10ch;
+  background-color: var(--color);
+  font-size: 1.5rem;
+  padding: var(--paddin-size);
+  width: calc(var(--num-ch) + var(--paddin-size) * 2);
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url("../assets-JS/RubikBrokenFax-Regular.woff") format("woff");
+  /* src: url("../assets-JS/RubikBrokenFax-Regular.woff")format('woff'),url("../assets-JS/RenBrokenMix-Reg.woff2")format('woff2'); */
+  font-display: swap;
+  /* 
+   font-display: 
+     auto - premite que el navegador utilice le metodo prederminado que suele ser block
+     block - oculta brevemente el texto hasta que la fuente haya sido descargada por completo
+     swap - indica al nacegador que utilice la fuente alternativa para mostrar el texto hasta que la fuente personalizada se haya cargado por completo
+     fallback - es una mezcla de auto y swap
+     optional - ocultara el texto, luego lo cargara con la fuente alternativa finalmente aplicara la fuente personalizada
+   */
+}
+.tip_import {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.5rem;
+}
+.google_font {
+  font-family: "Single Day", cursive;
+  font-size: 1.5rem;
+  /* EXTRA */
+}
+.text {
+  box-shadow: 3px 5px 50px 1px #aaa;
+  text-shadow: 3px 4px 5px #ccc;
+  /* width: 200px;
+  height: 100px; */
+  padding: 20px;
+  border: thick solid #aaa;
+
+  /* text-align: center; */
+  text-align: left;
+  /* text-decoration: underline dashed #ddd; */
+  text-decoration: none;
+  text-indent: 3rem;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  text-transform: uppercase;
+  /* font-variant: small-caps; */
+  letter-spacing: 5px;
+  /* white-space: pre; */
+  /*word-break: break-all; --- > cuando no llega a alcanzar una palabra larga y pasa a la siguiete dejandome un espacio en blanco, ahi utilizo para romper la palabra.*/
+  word-spacing: 5px; /*--- > Funciona como letter-spacing, espaciado entre las palabras */
+  writing-mode: horizontal-tb; /* ---> cambiar de orientacion, defecto(horizontal-tb); tambien tenemos vertical-lr y vertical-rl */
+}
+
+.pre-like-code {
+  white-space: pre-wrap;
+  /* pre ----> por defecto es --- nowrap */
+  font-family: "Single day";
+}
+/************ Border y border-radious ************/
+.leaf {
+  background-color: #0a0;
+  height: 5rem;
+  width: 2rem;
+  border-radius: 1rem 2rem/2rem 4rem;
+  position: relative;
+  left: 4rem;
+  border: 1px solid #050;
+}
+.apple {
+  width: 200px;
+  height: 200px;
+  background-color: #f00;
+  border-top: 2px solid #694a23;
+  border-bottom: 5px dotted #aa0;
+  border-right: 10px double #00f;
+  border-left: 20px dashed #0f0;
+  border-radius: 2rem 3rem 4rem 5rem/4rem 6rem 8rem 10rem;
+}
+/****************** Outline *******************/
+.outline {
+  height: 200px;
+  width: 200px;
+  background-color: #000;
+  outline: 4px solid #00f;
+  outline-offset: 0.5rem;
+  outline-offset: -2rem;
+}
+
+/* ************* Texto en Columna *************/
+.text-column-4 {
+  list-style-position: inside;
+  column-count: 4;
+  column-gap: 1rem;
+  column-rule: thin dotted #f00;
+  column-width: 100px; /* Tamaño minimo de anchura de la columna*/
+}
+.text-column-3 {
+  column-count: 3;
+  column-gap: 1rem;
+  column-rule: thin solid #0a9;
+  column-width: 100px; /* Tamaño minimo de anchura de la columna*/
+}
+
+/************** Tablas **************/
+.table {
+  font-size: 2rem;
+  border-collapse: collapse; /* separate, es por defecto*/
+  /* empty-cells: hide; ----->  no funciona si esta en collapse; su valor por defecto es show*/
+}
+.table,
+th,
+td {
+  border: thin solid #000;
+  /* border-spacing: 2rem; ----> no funciona cuando esta en collapse la tabla; ( al darle valor 0 a border-spacing es como collapse de la tabla pero mas grueso el borde*/
+}
+
+/*************** Formularios CSS **************/
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+.concat-form {
+  --form-text-color: #333;
+  --from-succes-color: #2c2;
+  --form-error-color: #c22;
+  --form-bg-color: #ddd;
+  --form-border-color: #222;
+  --form-placeholder-color: rgba(0, 0, 255, 0.653);
+
+  background-color: var(--form-bg-color);
+  border: 2px solid var(--form-border-color);
+  margin: 0 auto;
+  padding: 1.5rem;
+  width: 80%;
+}
+.concat-form > * {
+  display: block;
+  font-family: sans-serif;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  color: var(--form-text-color);
+  caret-color: var(--form-placeholder-color);
+}
+.concat-form > *::placeholder {
+  color: var(--form-placeholder-color);
+}
+.concat-form input[type="submit"] {
+  margin-bottom: 0;
+  width: 30%;
+  margin: 0 auto;
+  background-color: var(--form-placeholder-color);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.concat-form input[type="submit"]:hover {
+  cursor: pointer;
+  opacity: 75%;
+}
+.concat-form textarea {
+  resize: none;
+}
+
+.concat-form > *[required]:valid {
+  border: thin solid var(--from-succes-color);
+}
+.concat-form > *[required]:invalid {
+  border: thin solid var(--form-error-color);
+}

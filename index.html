@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="normalize/normalize.css"> -->
+  <!--normalize tiene que ir antes por que es un codigo de tercero-->
+  <link rel="shortcut icon" href="./assets-CSS/favicon.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/css.gg@2.0.0/icons/css/airplane.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <nav id="index">
+      <h1>Starting with CSS again</h1>
+      <section>
+        <h2>Indice:</h2>
+        <ul>
+          <li><a href="#basic-selectors">Basic selectors</a></li>
+          <li><a href="#advanced-selectors">Advanced selectors</a></li>
+          <li><a href="index.html#pseudoclases-pseudoelementos">Pseudo clases y Pesudo elementos</a></li>
+          <li><a href="#algorithms-css">Algorithms CSS</a></li>
+          <li><a href="#box-model">Box Model</a></li>
+          <li><a href="#marginCollapse-marginAuto-position">Margin-collapse(vertical), margin-auto(centrar) &
+              Position</a></li>
+          <li><a href="#colores"> rgb, hexadecimal and hsl : CSS color</a></li>
+          <li><a href="#unidades-medida">Unidades de mediad CSS</a></li>
+          <li><a href="#variables-funciones">Cariables y funicones</a></li>
+          <li><a href="#tipografia">Tipografias</a></li>
+          <li><a href="#text">Text --(estilados)</a></li>
+          <li><a href="#border-outline">Border, border-radious and outline</a></li>
+          <li><a href="#texto-columnas">text or list in columns</a></li>
+          <li><a href="#tablas-css">Tablas</a></li>
+          <li><a href="#formulario-css">Ejemplo de estilo en formulario</a></li>
+          <li><a href="#more-info">More Info</a></li>
+        </ul>
+      </section>
+    </nav>
+  </header>
+  <main>
+    <article>
+      <h2><u>Basics of CSS:</u></h2>
+      <p class="resume">
+        HTML: lenguaje demarcado que define contenido
+        <br>
+        CSS: lenguaje de definicion de estilos que da presentacion
+      </p>
+      <hr>
+      <section id="basic-selectors">
+        <h3>Basic selectors</h3>
+        <div>
+          <span>Seleccion por etiqueta(ejm: span, p, div, etc)</span><br>
+          <span id="color-pink">Seleccion por identificador(id: #)</span><br>
+          <span class="color-yellow bg-black">Seleccion por clases(class: .)</span>
+        </div>
+        <a href="#index">👆</a>
+      </section>
+      <hr>
+      <section id="advanced-selectors">
+        <h3>Advanced selectors</h3>
+        <div>
+          <h4>Selectores de hijos: directos (>)</h4>
+          <span>Selectores de hijos especificos directos(hijos)</span>
+          <ul class="hijos-directos">
+            <li><b>Primavera</b></li>
+            <li><b>Verano</b></li>
+            <li><b>Otoño</b></li>
+            <li><b>Invierno</b></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Selectores de hijos: descendentes ( )</h4>
+          <span>Selectores de hijos descendientes(hijos "o" nietos)</span>
+          <ul class="hijos-descendentes">
+            <li><b>Primavera</b></li>
+            <li><b>Verano</b></li>
+            <li><b>Otoño</b></li>
+            <li><b>Invierno</b></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Selectores hermanos: en general (~)</h4>
+          <ul>
+            <li><b>Primavera</b></li>
+            <li class="hermanos-general"><b>Verano</b></li>
+            <li><b>Otoño</b></li>
+            <li><b>Invierno</b></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Selectores de hermanos: adyacentes (+)</h4>
+          <ul>
+            <li><b>Primavera</b></li>
+            <li class="hermanos-adyacentes"><b>Verano</b></li>
+            <li><b>Otoño</b></li>
+            <li><b>Invierno</b></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Selectores de atributos:</h4>
+          <div>Esto se esta aplicando a los links del footer la ultima seccion <a href="#more-info">Mas informacion
+              relevante</a></div><br>
+          <div>
+            <b style="color: purple">Corta referencia:</b><span style="color: #009"> que tenga el atributo en
+              cuestion</span>
+            <pre>
+              .selectores-atributos a[href] {
+              color: #529;
+              }
+            </pre>
+          </div>
+          <div>
+            <b style="color: purple">Normal:</b><span style="color: #009"> que tenga el atributo y su valor
+              completo</span>
+            <pre>
+              a[href="#index"] {
+              text-decoration: none;
+              font-size: 2em;
+              }
+            </pre>
+          </div>
+          <div>
+            <b style="color: purple">Inclusion: </b><span style="color: #009">(*) que tenga incluido cualquier parte del
+              url determinado</span>
+            <pre>
+              .selectores-atributos a[href*="getbootstrap"] {
+              text-decoration: none;
+              }
+            </pre>
+          </div>
+          <div>
+            <b style="color: purple">Empieza con: </b><span style="color: #009">(^) que comience con una url
+              deterinada</span>
+            <pre>
+              .selectores-atributos a[href^="http://"]
+              {
+              font-family: cursive;
+              }
+            </pre>
+          </div>
+          <div>
+            <b style="color: purple">Finaliza con: </b>
+            <span style="color: #009">($) que termine con la url determinada
+            </span>
+            <pre>
+              .selectores-atributos a[href$=".co/#css-syntax"] {
+              color: green;
+              }
+            </pre>
+          </div>
+          <div>
+            <b style="color: purple">Incrustado con espacios a los costados: </b>
+            <span style="color: #009">
+              el comodin(~) funciona con un determinado valor que se encuentra en medio de dos
+              palabras separada por espacios; Generalmente para clases.
+            </span>
+            <pre>
+              .selectores-atributos a[class~="atributo_style"] {
+              text-shadow:2px 1px 3px #900;
+              }
+            </pre>
+          </div>
+          <div>
+            <b style="color: purple">Con: </b>
+            <span style="color: #009">
+              El comodin del ( | ), pipe aplica el estilo si contiene el texto en cuestion en una lista separada por
+              espacios y
+              que despues del
+              texto en cuetion venga un guion medio -
+            </span>
+            <pre>
+              .selectores-atributos a[class|="menu"] {
+              font-weight: bolder;
+              }
+            </pre>
+
+          </div>
+        </div>
+        <div>
+          <h4>Selector Universal: *</h4>
+          <span>Este esta siendo aplicada solo al contenedor ul; ya que tiene la clase selector universal:</span>
+          <pre style="display: flex;">
+            <div>
+                      HTML:
+            &lt;ul class="selector-universal"&gt; 
+              &lt;li&gt;&lt;b&gt;Primavera&lt;/b&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;b&gt;Verano&lt;/b&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;b&gt;Otoño&lt;/b&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;b&gt;Invierno&lt;/b&gt;&lt;/li&gt;
+            &lt;ul&gt;
+            </div>
+            <div>
+                      CSS:
+              .selector-universal > * {
+              font-size: 1.5em;
+              }
+            </div>
+          
+          </pre>
+          <ul class="selector-universal">
+            <li><b>Primavera</b></li>
+            <li><b>Verano</b></li>
+            <li><b>Otoño</b></li>
+            <li><b>Invierno</b></li>
+          </ul>
+        </div>
+
+        <a href="#index">👆</a>
+      </section>
+      <hr>
+      <section id="pseudoclases-pseudoelementos">
+        <h3>Pseudo clases y Pseudo elementos</h3>
+        <div>
+
+          <h4>Pseudo clases:</h4>
+          <div class="clr_bfd">Most famous{ <code>:hover</code> }</div>
+          <span>Dan estilo dependiendo del contexto; posicion o estado del elemento</span> -----
+          <a href="https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes" target="_blank">Pseudo clases (MDN)</a>
+          <div class="clr_bfd">Pseudo clases para elements de formularios{ <code>:required, :valid, :invalid, :focus,
+              :disabled</code> }</div>
+          <form action="" class="form-pseudoclases">
+            <input type="text" name="name" placeholder="Escribe tu nombre" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+              required><br>
+            <input type="email" name="correo" placeholder="escribe tu correo" required><br>
+            <input type="submit">
+            <input type="submit" disabled>
+          </form><br>
+          <div class="clr_bfd">Pseudo clases para elementos de enlaces {
+            <code>:visited, :target--jaja-este es la mejor---ya lo vera</code> }
+          </div>
+          <nav class="menu-pseudoclases">
+            <a href="https://www.astrthelabel.com/">Seccion 1</a>
+            <a href="https://www.tesla.com/es_es">Seccion 2</a>
+            <a href="https://universe.nasa.gov/universe">Seccion 3</a>
+            <a href="https://nice.com">Seccion 4</a>
+          </nav><br>
+          <div class="clr_bfd">Pseudo clase: todo tipo de hijos{
+            <code>:fist-child, :last-child, :nth-child(2)--- el hijo o 2n o inclusive odd(impares) y even(pares)</code>
+            }
+          </div>
+          <ol class="lista-pseudoclases">
+            <li>Asta</li>
+            <li>Mimosa</li>
+            <li>Luck</li>
+            <li>Noelle</li>
+            <li>Finral</li>
+            <li>Vanessa</li>
+          </ol><br>
+          <div class="clr_bfd">Pseudo clases solo un tipo de hijo especifico { <code>:fist-of-type, :last-of-type,
+              :nth-of-type(), :not()-----las demas exepto este </code>
+            }</div>
+          <article class="articulo-pseudoclases">
+            <header>Esto es un header</header>
+            <p>Esto es un parrafo</p>
+            <div>Esto es un div</div>
+            <p>Esto es un parrafo</p>
+            <section>Esto es una seccion</section>
+            <p>Esto es un parrafo</p>
+            <div>Esto es un div</div>
+            <p>Esto es un p</p>
+            <footer>Esto es un footer</footer>
+          </article>
+        </div>
+        <div>
+          <h4>Pseudo elementos:</h4>
+          <span>Permiten añadir
+            estilos a una
+            parte concreta del documento.</span>-----<a
+            href="https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-elements" target="_blank">Pseudo elementos
+            (MDN)</a>
+          <div class="clr_bfd">Pseudo elementos{
+            <code>::after, ::before, ::first-letter, ::first-line, ::selection , ::placeholder</code> }
+          </div>
+          <div class="clr_bfd">Se puede applicar en general{ <code>::selection</code> }
+          </div>
+          <p class="p-pseudoelementos">Lorem ipsum dolor sit, amet consectetur adipisicing elit. <b>Nemo, ut facere.
+              Asperiores at pariatur reiciendis magnam fugiat quas officia rerum earum quo, officiis quisquam, alias
+              molestias dicta aperiam</b> praesentium dolore!</p>
+          <input class="input-pseudoelementos" type="text" name="nombre" id="" placeholder="Escriba su nombre:">
+
+        </div>
+        <div>
+          <h4>Agrupar selectores: (,)</h4>
+          <form class="form-agrupar-selectores">
+            <input type="text" name="nombre" placeholder="Escribe tu nombre">
+            <input type="email" name="correo" placeholder="Escribe tu correo">
+            <textarea name="comentarios" placeholder="Escribe tus comentarios" cols="30" rows="10"></textarea>
+            <input type="submit">
+          </form>
+        </div>
+        <a href="#index">👆</a>
+      </section>
+      <hr>
+      <section id="algorithms-css">
+        <h3>Algoritmo CSS</h3>
+        <div>
+          <h4>Cascada, especificidad:</h4>
+          <span><b>Cascada:</b> al tener la misma especificidad(que no intervenga la especificidad), es el ultimo que es
+            el que es definido.</span><br>
+          <span><b>Especificidad:</b> dependiendo del selector;
+            <pre>La espedifidad es el peso que tiene un selector cuando hay conflicto de estilos. Se calcula de la siguiente forma:
+          Etiquetas y pseudoelementos ------------0,0,0,1
+          Clases, atributos y pseudoclases -------0,0,1,0
+          Identificadores ------------------------0,1,0,0
+          Estilos en linea -----------------------1,0,0,0
+          !important --------------Rompe la especificidad</pre>
+          </span><br>
+
+          <img src="https://th.bing.com/th/id/OIP.BC11-OawA701d82-B8Y89AHaE_?rs=1&pid=ImgDetMain"
+            alt="especificidad-css">
+          <p id="bg-red" class="bg-palegreen" style="background: purple;">Lorem ipsum dolor sit, amet consectetur
+            adipisicing elit. Voluptas aspernatur, labore quibusdam quasi eius impedit nesciunt reiciendis, eveniet,
+            maxime iste iure deserunt recusandae totam nihil placeat dolore veniam voluptates rem.</p>
+        </div>
+        <div>
+          <h4>Herencia: (inherit, initial); <a
+              href="https://web.dev/learn/css/inheritance?hl=es-419#which-properties-are-inheritable"
+              target="_blank">Web dev</a></h4>
+          <span><b>inherit:</b> para heredar una propieda no heredable, ejm: color, background.</span><br>
+          <span><b>initial:</b> para devolver el valor inicial de una propiedad heredable, ejm: font-size,
+            font-family</span>
+          <blockquote class="cita-marco">Se tolerante con los demas y estricto contigo mismo <cite>- Marco
+              Aurelio</cite>
+          </blockquote>
+        </div>
+        <div>
+          <h4>Normalize css</h4>
+          <iframe src="normalize/normalize.css" frameborder="0" width="800px"></iframe>
+        </div>
+        <div>
+          <h4>Prefijos de Navegadores: <a href="https://autoprefixer.github.io/" target="_blank">Autoprefixer</a></h4>
+          <ul type="square">
+            <li>Todos los demas navegadores<code><b>-webkit</b></code></li>
+            <li>Navegadores de Microsoft <code><b>-ms-</b></code></li>
+            <li>Firefox <code><b>-moz-</b></code></li>
+          </ul>
+        </div>
+        <a href="#index">👆</a>
+      </section>
+      <hr>
+      <section id="box-model">
+        <h3>Modelo de caja</h3>
+        <pre>
+
+        Caja de Linea:
+        - Ocupan el espacio necesario para mostrar su contenido.
+        - No tienen dimensiones modificables ( alto, ancho).
+        - Permiten otros elementos a su lado.
+        - Padding y margin solo empujan a elementos adyacentes en horizontal, 
+          NUNCA EN VERTICAL.
+        Caja de Bloque:
+        - Ocupa todo el ancho disponible, lo que genera saltos de linea.
+        - Tienen dimensiones modificables (alto, ancho).
+        - No permiten otros elementos a su lado (aunque especifique un ancho, 
+          sigue ocupando todo el espacio disponible a lo ancho, generando saltos 
+          de linea).
+
+      padding & margin just (right-left)---- for inline(linea)
+        </pre>
+        <span>Para ocultar: </span>(<code>Visivility: hidden; display: none;</code>) <br>
+        <span class="span-inline">span</span>
+        <span class="span-inline-2">span</span><span>Noone</span><br>
+        <div>
+          <h4>border: & border-radius:</h4>
+          <div class="box-model" type="square">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, facere ipsum. Illo voluptatem atque rerum
+            dolorem ex architecto soluta est libero voluptatum. Vitae nihil corporis architecto a soluta sapiente
+            consequuntur.
+          </div>
+          <pre>
+
+            thin === 1px; 
+            medium === 3px; 
+            thick === 5px
+          </pre>
+          <pre>
+
+            <b style="color: #a5a">margin: x;
+            padding: x;
+            
+            border: medium solid 🟥red;
+            </b>
+            border: top right buttom left;
+            /* top right buttom left */------generic (4)
+            /* top-buttom right left */-------(3)
+            /* top-buttom right-left */-------(2)
+            /* top-buttom-right-left */-------(1)
+  
+            border-radius: 5px 20px 100px;
+            /* top-left top-right buttom-right buttom-left */----generic (4)
+            /* top-left top-right_buttom-left buttom-right */-------(3)
+            /* top-left_buttom-right top-rigth_buttom-left */-------(2)
+            /* top-left_top-right_buttom-right_buttom-left*/--------(1)
+          </pre>
+        </div>
+        <div>
+          <h4>Overflow: <span style="font-weight: 100;">auto, scroll, hidden ------visible__default</span></h4>
+
+          <div class="div-overflow">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quasi similique debitis commodi illum iure nam,
+            recusandae assumenda maxime fuga. Consequatur possimus animi nam corrupti consectetur harumvoluptatem,
+            exercitationem dolores? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, distinctio vero
+            officia voluptas, commodi minus quibusdam doloribus hic voluptatem reiciendis, sed ipsam aperiam excepturi!
+            Possimus rem ipsam suscipit iste nobis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+            quisquam mollitia odio, quibusdam quia quod voluptatibus? Nesciunt optio est, fugiat dolore excepturi iusto
+            corrupti deserunt deleniti. Atque harum quas laudantium!
+            Dignissimos iusto totam dolor obcaecati optio, voluptatum amet ipsa velit minima. Impedit praesentium
+            consectetur, deleniti nihil consequatur voluptatum recusandae aperiam vel repellat rem quaerat obcaecati
+            harum autem sed culpa amet!
+            Nobis labore similique praesentium dolorem natus aspernatur architecto eius at tempora fugit dicta nisi
+            fugiat sed, corrupti amet sint vero nostrum, porro inventore asperiores sit dolor voluptates perspiciatis.
+            Atque, illum.
+            Nobis aperiam officia ea unde perspiciatis esse, harum voluptatibus sequi quaerat? Saepe eius maiores
+            suscipit distinctio eaque corrupti perferendis sequi, provident quidem voluptatem magnam esse? Tempora
+            fugiat atque sapiente laboriosam!
+            Consequatur, delectus modi, vero odio ullam sequi illum iste debitis voluptatum aut quas rem quo error.
+            Doloremque ad quos velit recusandae veritatis alias saepe quidem, in dignissimos, ullam soluta temporibus.
+          </div>
+        </div>
+        <div>
+          <h4>Box sizing</h4>
+          <pre>
+            html {
+              box-sizing: border-box;
+            }
+
+            *,
+            *:before,
+            *:after {
+              box-sizing: inherit;
+            }</pre>
+        </div>
+        <div>
+          <h4>Float</h4>
+          <div class="div-float">
+            <img
+              src="https://th.bing.com/th/id/R.5c1cb9376b3bee7effa4286fbc6ef4ba?rik=KimYjCSDB1u4jg&riu=http%3a%2f%2fs1.picswalls.com%2fwallpapers%2f2016%2f03%2f29%2fawesome-beautiful-nature-wallpaper_042319501_304.jpg&ehk=8bGUOKnA5IrfEG%2foi23atcc7xm8BmgDPkLvJhn94JwA%3d&risl=&pid=ImgRaw&r=0"
+              alt="house-wilde">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, tempore doloribus, quia itaque nisi
+            obcaecati, accusamus maiores illo deserunt nostrum dolorem soluta non minus iure ut repellat nihil
+            consectetur nemo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit saepe dolor laboriosam
+            esse, omnis quam corrupti at perferendis sapiente doloribus dolorem atque magnam nisi tempora molestias illo
+            ullam suscipit sit.
+            Quasi tenetur ratione placeat numquam eius sint itaque nihil vel magnam ea optio expedita molestiae, magni
+            in nam ipsa voluptatum. Asperiores corrupti possimus aliquam error ipsum dignissimos animi velit
+            accusantium!
+            Sapiente ipsa beatae inventore quidem amet, earum natus pariatur quo iure eaque nostrum sit, perspiciatis
+            sint quisquam numquam eligendi veniam! Minus non magnam perferendis eum ipsa, qui hic molestias error!
+          </div>
+        </div>
+        <div>
+          <h4>Float & Clear: antes, ahora ya no se utiliza....</h4>
+          <div>
+            <article class="container-floats">
+              <seccion class="float-right">Elemento float a la derecha</seccion>
+              <seccion class="float-left">Elemento float a la izquierda</seccion>
+            </article>
+            <div class="clear-fix"></div>
+            <article>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut aliquid minima sint dolorum, ipsam labore
+              quis inventore enim alias dolores officiis esse nesciunt nostrum accusamus! Maiores tempore aut iste
+              rerum!
+            </article>
+          </div>
+        </div>
+        <a href="#index">👆</a>
+      </section>
+      <hr>
+      <section id="marginCollapse-marginAuto-position">
+        <h3>Colapso de Margen, Centrado de cajas Y posisicionamiento</h3>
+        <div>
+          <h4>Colapso de Margenes Verticales</h4>
+          <span><b>margin vertical:</b>solo se colapsa con margi, no con padding; ademas de solo en orden vetical
+            |;</span><br><br>
+          <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, voluptatem exercitationem! Voluptas
+            harum error amet aut similique assumenda placeat, rerum odit tempora quaerat et quidem, hic aliquid ea
+            necessitatibus eos!</div>
+          <article class="margin-collapse">
+            <section>Seccion 1</section>
+            <section>Seccion 2</section>
+          </article>
+        </div>
+        <div>
+          <h4>Centrado de cajas</h4>
+          <span><b>margin:</b><code> margin: auto;</code> es la forma para centrar la caja por exelencia.</span>
+          <article class="sitio-web">
+            <header>Header</header>
+            <main>Main</main>
+            <footer>Footer</footer>
+          </article>
+        </div>
+        <div>
+          <h4>Posicionamiento</h4>
+          <pre>
+            Tipos de Posicionamiento:
+            - static(default)
+            - relative
+            - absolute
+            - fixed
+            - sticky
+            Para mover los elementos posicionados se activan las propiedades:
+            - top(vertical - eje Y)
+            - bottom(vertical - eje Y)
+            - left(horizontal - eje X)
+            - right(horizontal - eje X)
+            - z-index(profundidad - eje Z)
+
+            Las propiedades top y left van a tener prefernecias por sobre bottom y right respectivamente.
+            
+            Estas 5 propiedades n ofuncionan con el valor de static.</pre>
+          <div>
+            <span><b>Static:</b> default.</span><br>
+            <span><b>Relative:</b> tiene espacio reservado en el DOM, inicializacion del lugar donde se
+              encuentra.</span><br>
+            <span><b>Absolute:</b> No tiene espacio reservado en el DOM, inicializacion del DOM o de su elemento
+              posicionado padre que tenga posicionamiento.</span><br>
+            <span><b>Fixed:</b>Al igula que relative y absolute. Con el unico detalle de que se quede
+              estancado.</span><br>
+            <span><b>Sticky:</b>Al igula que relative(+ fixed) es por seccion y se aplica solo con un, top, left, right,
+              bottom; que nos sirve como punto de referencia.(por ello no mueven el elemento en si). <br> Ejm:
+              <code>top: 0px;</code> ademas el espacion reservado en el DOM se matiene pero es desplasable. <br> Hijo
+              directo del body o que su contenido padre tenga haltura o espacio definido.</span><br>
+            <span><b>z-index: </b>posicion en el eje z. Ejm de una excepcion-------------HTML & CSS</span><br>
+            <code>.z-index-$*2{Probando z-index caja $}<br>.z-index-${Probando z-index caja $}*2</code>
+            <div class="z-index-father">
+              <div class="z-index-child"></div>
+            </div><br>
+            <!-- <header class="fixed-top">
+              <div>Contenido de la cabecera</div>
+            </header> -->
+          </div>
+          <div class="position-default_static">Normal</div>
+          <div class="position-test">Sticky
+            <div class="box-child">child-absolute with ansester posicionated</div>
+          </div>
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum modi, maxime vitae aliquid ab ipsam iusto
+            unde
+            soluta tempore impedit facere sequi culpa praesentium voluptas, nesciunt, odio doloribus vero possimus!
+            Facere quidem veniam, ullam quam, ratione consequuntur quos atque repellendus quo culpa cupiditate. Commodi
+            et
+            inventore laudantium exercitationem nobis sed asperiores ea. Sed animi quis sint praesentium error atque
+            soluta!
+            Distinctio mollitia expedita hic officia minima dolorum repudiandae quo quia fuga tenetur voluptas, ex
+            quidem
+            alias illum consectetur fugit assumenda? Dolorem, autem quas! Iste suscipit asperiores at voluptatem
+            perspiciatis vel?
+            Error ut nam aperiam inventore id natus voluptatibus quas omnis consequatur repellendus nisi expedita
+            voluptatum fuga reiciendis, temporibus eum atque aliquam rerum. Sint debitis itaque, quidem deleniti aperiam
+            velit rerum?
+            Incidunt voluptate cupiditate harum provident, repudiandae pariatur dignissimos dolorum animi. Repellat
+            voluptatum perferendis fugiat delectus unde, amet officiis animi ea officia aliquid quae, id molestiae odit?
+            Exercitationem accusantium dolorum iure?
+            Repellendus reprehenderit facilis dolor quae commodi quas consequatur odio blanditiis voluptates adipisci
+            odit
+            nobis itaque vitae reiciendis tenetur nesciunt ipsa esse quod recusandae, nemo quibusdam non. Nobis voluptas
+            placeat consequuntur.
+            Itaque nemo inventore, amet suscipit maiores quidem modi cupiditate velit. Quia dicta harum iste autem
+            voluptates fugiat, magnam temporibus, natus perferendis accusamus incidunt cumque accusantium excepturi
+            expedita hic adipisci? Distinctio.
+            Impedit distinctio velit consequatur officiis assumenda, delectus aperiam quasi ea perferendis accusamus
+            quidem sapiente? Excepturi labore repudiandae, perferendis quis porro in ullam cumque distinctio iure!
+            Consequuntur placeat modi quaerat obcaecati?
+            Corporis fugit iure temporibus? Fuga repudiandae, quos ducimus officia quis qui debitis amet provident
+            soluta
+            aspernatur hic architecto at perspiciatis odit quas delectus iure porro ut ea consequatur consequuntur
+            libero!
+            Exercitationem, expedita odit quasi totam quod nemo deserunt debitis eius ratione, sequi tenetur,
+            consectetur
+            voluptate explicabo quas ipsa laudantium. Voluptates laudantium molestias, vitae reiciendis reprehenderit
+            provident rem fugiat quidem animi?
+          </div>
+          <div>
+
+          </div>
+
+        </div>
+        <div>
+          <h4>Ejercicio sticky---Efecto slides</h4>
+          <details>
+            <summary>Slide with sticky: an easy example</summary>
+            <article class="slides">
+              <section class="slide">
+                <h5 class="slide-title">Titulo de la seccion 1</h5>
+                <div class="slide-content">
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus suscipit accusantium quod
+                    ducimus
+                    delectus voluptate alias sunt repellat amet id consequatur pariatur numquam ratione aperiam impedit
+                    ad,
+                    voluptatum quidem autem.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta perferendis laborum eum ratione
+                    quasi
+                    dolore quidem magni sequi recusandae vitae quibusdam minus officiis, libero laboriosam alias,
+                    voluptatum
+                    incidunt exercitationem excepturi?</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae impedit officiis, magni debitis vero
+                    harum
+                    rerum vel in fugiat exercitationem laborum doloremque excepturi. Et minima nisi cupiditate mollitia
+                    numquam distinctio.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aliquam ad! Est exercitationem
+                    vitae,
+                    soluta facilis repellat laborum ipsum voluptatum deserunt, possimus debitis maxime perspiciatis, in
+                    dolorum at expedita. Beatae!</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur itaque repellat eligendi
+                    inventore,
+                    placeat totam perferendis enim dolorem necessitatibus quod, odit explicabo. Magnam harum quod
+                    consequuntur
+                    neque, ratione expedita veniam?</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem alias reprehenderit et? Optio,
+                    veritatis. Ab debitis mollitia, esse consectetur quasi quibusdam incidunt, earum ipsa, dolores nihil
+                    praesentium doloremque accusamus voluptate.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa est quas, facilis ratione enim
+                    nisi.
+                    Fugiat quaerat tempora iusto numquam eaque neque, nihil nesciunt molestiae hic accusamus, optio
+                    maiores?
+                  </p>
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit iure, nobis aliquam
+                    corporis
+                    eveniet mollitia quae, ipsa dolore at beatae, voluptatibus eos totam quas velit? Dolorum excepturi
+                    iure
+                    ipsam eius!</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos necessitatibus aliquid nobis a
+                    maxime
+                    quisquam laborum consectetur voluptates molestiae odio totam, itaque sunt maiores explicabo alias
+                    amet
+                    consequuntur reprehenderit! Id.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quasi alias quam rerum ab. Nobis
+                    maiores
+                    inventore possimus sit. Ducimus eveniet dignissimos incidunt veniam quibusdam facere sequi quidem
+                    laudantium necessitatibus!</p>
+                </div>
+              </section>
+              <section class="slide">
+                <h5 class="slide-title">Titulo de la seccion 2</h5>
+                <div class="slide-content">
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus suscipit accusantium quod
+                    ducimus
+                    delectus voluptate alias sunt repellat amet id consequatur pariatur numquam ratione aperiam impedit
+                    ad,
+                    voluptatum quidem autem.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta perferendis laborum eum ratione
+                    quasi
+                    dolore quidem magni sequi recusandae vitae quibusdam minus officiis, libero laboriosam alias,
+                    voluptatum
+                    incidunt exercitationem excepturi?</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae impedit officiis, magni debitis vero
+                    harum
+                    rerum vel in fugiat exercitationem laborum doloremque excepturi. Et minima nisi cupiditate mollitia
+                    numquam distinctio.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aliquam ad! Est exercitationem
+                    vitae,
+                    soluta facilis repellat laborum ipsum voluptatum deserunt, possimus debitis maxime perspiciatis, in
+                    dolorum at expedita. Beatae!</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur itaque repellat eligendi
+                    inventore,
+                    placeat totam perferendis enim dolorem necessitatibus quod, odit explicabo. Magnam harum quod
+                    consequuntur
+                    neque, ratione expedita veniam?</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem alias reprehenderit et? Optio,
+                    veritatis. Ab debitis mollitia, esse consectetur quasi quibusdam incidunt, earum ipsa, dolores nihil
+                    praesentium doloremque accusamus voluptate.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa est quas, facilis ratione enim
+                    nisi.
+                    Fugiat quaerat tempora iusto numquam eaque neque, nihil nesciunt molestiae hic accusamus, optio
+                    maiores?
+                  </p>
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit iure, nobis aliquam
+                    corporis
+                    eveniet mollitia quae, ipsa dolore at beatae, voluptatibus eos totam quas velit? Dolorum excepturi
+                    iure
+                    ipsam eius!</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos necessitatibus aliquid nobis a
+                    maxime
+                    quisquam laborum consectetur voluptates molestiae odio totam, itaque sunt maiores explicabo alias
+                    amet
+                    consequuntur reprehenderit! Id.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quasi alias quam rerum ab. Nobis
+                    maiores
+                    inventore possimus sit. Ducimus eveniet dignissimos incidunt veniam quibusdam facere sequi quidem
+                    laudantium necessitatibus!</p>
+                </div>
+              </section>
+              <section class="slide">
+                <h5 class="slide-title">Titulo de la seccion 3</h5>
+                <div class="slide-content">
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus suscipit accusantium quod
+                    ducimus
+                    delectus voluptate alias sunt repellat amet id consequatur pariatur numquam ratione aperiam impedit
+                    ad,
+                    voluptatum quidem autem.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta perferendis laborum eum ratione
+                    quasi
+                    dolore quidem magni sequi recusandae vitae quibusdam minus officiis, libero laboriosam alias,
+                    voluptatum
+                    incidunt exercitationem excepturi?</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae impedit officiis, magni debitis vero
+                    harum
+                    rerum vel in fugiat exercitationem laborum doloremque excepturi. Et minima nisi cupiditate mollitia
+                    numquam distinctio.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aliquam ad! Est exercitationem
+                    vitae,
+                    soluta facilis repellat laborum ipsum voluptatum deserunt, possimus debitis maxime perspiciatis, in
+                    dolorum at expedita. Beatae!</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur itaque repellat eligendi
+                    inventore,
+                    placeat totam perferendis enim dolorem necessitatibus quod, odit explicabo. Magnam harum quod
+                    consequuntur
+                    neque, ratione expedita veniam?</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem alias reprehenderit et? Optio,
+                    veritatis. Ab debitis mollitia, esse consectetur quasi quibusdam incidunt, earum ipsa, dolores nihil
+                    praesentium doloremque accusamus voluptate.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa est quas, facilis ratione enim
+                    nisi.
+                    Fugiat quaerat tempora iusto numquam eaque neque, nihil nesciunt molestiae hic accusamus, optio
+                    maiores?
+                  </p>
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit iure, nobis aliquam
+                    corporis
+                    eveniet mollitia quae, ipsa dolore at beatae, voluptatibus eos totam quas velit? Dolorum excepturi
+                    iure
+                    ipsam eius!</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos necessitatibus aliquid nobis a
+                    maxime
+                    quisquam laborum consectetur voluptates molestiae odio totam, itaque sunt maiores explicabo alias
+                    amet
+                    consequuntur reprehenderit! Id.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quasi alias quam rerum ab. Nobis
+                    maiores
+                    inventore possimus sit. Ducimus eveniet dignissimos incidunt veniam quibusdam facere sequi quidem
+                    laudantium necessitatibus!</p>
+                </div>
+              </section>
+              <section class="slide">
+                <h5 class="slide-title">Titulo de la seccion 4</h5>
+                <div class="slide-content">
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus suscipit accusantium quod
+                    ducimus
+                    delectus voluptate alias sunt repellat amet id consequatur pariatur numquam ratione aperiam impedit
+                    ad,
+                    voluptatum quidem autem.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta perferendis laborum eum ratione
+                    quasi
+                    dolore quidem magni sequi recusandae vitae quibusdam minus officiis, libero laboriosam alias,
+                    voluptatum
+                    incidunt exercitationem excepturi?</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae impedit officiis, magni debitis vero
+                    harum
+                    rerum vel in fugiat exercitationem laborum doloremque excepturi. Et minima nisi cupiditate mollitia
+                    numquam distinctio.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aliquam ad! Est exercitationem
+                    vitae,
+                    soluta facilis repellat laborum ipsum voluptatum deserunt, possimus debitis maxime perspiciatis, in
+                    dolorum at expedita. Beatae!</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur itaque repellat eligendi
+                    inventore,
+                    placeat totam perferendis enim dolorem necessitatibus quod, odit explicabo. Magnam harum quod
+                    consequuntur
+                    neque, ratione expedita veniam?</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem alias reprehenderit et? Optio,
+                    veritatis. Ab debitis mollitia, esse consectetur quasi quibusdam incidunt, earum ipsa, dolores nihil
+                    praesentium doloremque accusamus voluptate.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa est quas, facilis ratione enim
+                    nisi.
+                    Fugiat quaerat tempora iusto numquam eaque neque, nihil nesciunt molestiae hic accusamus, optio
+                    maiores?
+                  </p>
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit iure, nobis aliquam
+                    corporis
+                    eveniet mollitia quae, ipsa dolore at beatae, voluptatibus eos totam quas velit? Dolorum excepturi
+                    iure
+                    ipsam eius!</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos necessitatibus aliquid nobis a
+                    maxime
+                    quisquam laborum consectetur voluptates molestiae odio totam, itaque sunt maiores explicabo alias
+                    amet
+                    consequuntur reprehenderit! Id.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quasi alias quam rerum ab. Nobis
+                    maiores
+                    inventore possimus sit. Ducimus eveniet dignissimos incidunt veniam quibusdam facere sequi quidem
+                    laudantium necessitatibus!</p>
+                </div>
+              </section>
+              <section class="slide">
+                <h5 class="slide-title">Titulo de la seccion 5</h5>
+                <div class="slide-content">
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus suscipit accusantium quod
+                    ducimus
+                    delectus voluptate alias sunt repellat amet id consequatur pariatur numquam ratione aperiam impedit
+                    ad,
+                    voluptatum quidem autem.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta perferendis laborum eum ratione
+                    quasi
+                    dolore quidem magni sequi recusandae vitae quibusdam minus officiis, libero laboriosam alias,
+                    voluptatum
+                    incidunt exercitationem excepturi?</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae impedit officiis, magni debitis vero
+                    harum
+                    rerum vel in fugiat exercitationem laborum doloremque excepturi. Et minima nisi cupiditate mollitia
+                    numquam distinctio.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aliquam ad! Est exercitationem
+                    vitae,
+                    soluta facilis repellat laborum ipsum voluptatum deserunt, possimus debitis maxime perspiciatis, in
+                    dolorum at expedita. Beatae!</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur itaque repellat eligendi
+                    inventore,
+                    placeat totam perferendis enim dolorem necessitatibus quod, odit explicabo. Magnam harum quod
+                    consequuntur
+                    neque, ratione expedita veniam?</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem alias reprehenderit et? Optio,
+                    veritatis. Ab debitis mollitia, esse consectetur quasi quibusdam incidunt, earum ipsa, dolores nihil
+                    praesentium doloremque accusamus voluptate.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa est quas, facilis ratione enim
+                    nisi.
+                    Fugiat quaerat tempora iusto numquam eaque neque, nihil nesciunt molestiae hic accusamus, optio
+                    maiores?
+                  </p>
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit iure, nobis aliquam
+                    corporis
+                    eveniet mollitia quae, ipsa dolore at beatae, voluptatibus eos totam quas velit? Dolorum excepturi
+                    iure
+                    ipsam eius!</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos necessitatibus aliquid nobis a
+                    maxime
+                    quisquam laborum consectetur voluptates molestiae odio totam, itaque sunt maiores explicabo alias
+                    amet
+                    consequuntur reprehenderit! Id.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quasi alias quam rerum ab. Nobis
+                    maiores
+                    inventore possimus sit. Ducimus eveniet dignissimos incidunt veniam quibusdam facere sequi quidem
+                    laudantium necessitatibus!</p>
+                </div>
+              </section>
+              <section class="slide">
+                <h5 class="slide-title">Titulo de la seccion 6</h5>
+                <div class="slide-content">
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus suscipit accusantium quod
+                    ducimus
+                    delectus voluptate alias sunt repellat amet id consequatur pariatur numquam ratione aperiam impedit
+                    ad,
+                    voluptatum quidem autem.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta perferendis laborum eum ratione
+                    quasi
+                    dolore quidem magni sequi recusandae vitae quibusdam minus officiis, libero laboriosam alias,
+                    voluptatum
+                    incidunt exercitationem excepturi?</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae impedit officiis, magni debitis vero
+                    harum
+                    rerum vel in fugiat exercitationem laborum doloremque excepturi. Et minima nisi cupiditate mollitia
+                    numquam distinctio.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aliquam ad! Est exercitationem
+                    vitae,
+                    soluta facilis repellat laborum ipsum voluptatum deserunt, possimus debitis maxime perspiciatis, in
+                    dolorum at expedita. Beatae!</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur itaque repellat eligendi
+                    inventore,
+                    placeat totam perferendis enim dolorem necessitatibus quod, odit explicabo. Magnam harum quod
+                    consequuntur
+                    neque, ratione expedita veniam?</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem alias reprehenderit et? Optio,
+                    veritatis. Ab debitis mollitia, esse consectetur quasi quibusdam incidunt, earum ipsa, dolores nihil
+                    praesentium doloremque accusamus voluptate.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa est quas, facilis ratione enim
+                    nisi.
+                    Fugiat quaerat tempora iusto numquam eaque neque, nihil nesciunt molestiae hic accusamus, optio
+                    maiores?
+                  </p>
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit iure, nobis aliquam
+                    corporis
+                    eveniet mollitia quae, ipsa dolore at beatae, voluptatibus eos totam quas velit? Dolorum excepturi
+                    iure
+                    ipsam eius!</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos necessitatibus aliquid nobis a
+                    maxime
+                    quisquam laborum consectetur voluptates molestiae odio totam, itaque sunt maiores explicabo alias
+                    amet
+                    consequuntur reprehenderit! Id.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quasi alias quam rerum ab. Nobis
+                    maiores
+                    inventore possimus sit. Ducimus eveniet dignissimos incidunt veniam quibusdam facere sequi quidem
+                    laudantium necessitatibus!</p>
+                </div>
+              </section>
+              <section class="slide">
+                <h5 class="slide-title">Titulo de la seccion 7</h5>
+                <div class="slide-content">
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus suscipit accusantium quod
+                    ducimus
+                    delectus voluptate alias sunt repellat amet id consequatur pariatur numquam ratione aperiam impedit
+                    ad,
+                    voluptatum quidem autem.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta perferendis laborum eum ratione
+                    quasi
+                    dolore quidem magni sequi recusandae vitae quibusdam minus officiis, libero laboriosam alias,
+                    voluptatum
+                    incidunt exercitationem excepturi?</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae impedit officiis, magni debitis vero
+                    harum
+                    rerum vel in fugiat exercitationem laborum doloremque excepturi. Et minima nisi cupiditate mollitia
+                    numquam distinctio.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aliquam ad! Est exercitationem
+                    vitae,
+                    soluta facilis repellat laborum ipsum voluptatum deserunt, possimus debitis maxime perspiciatis, in
+                    dolorum at expedita. Beatae!</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur itaque repellat eligendi
+                    inventore,
+                    placeat totam perferendis enim dolorem necessitatibus quod, odit explicabo. Magnam harum quod
+                    consequuntur
+                    neque, ratione expedita veniam?</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem alias reprehenderit et? Optio,
+                    veritatis. Ab debitis mollitia, esse consectetur quasi quibusdam incidunt, earum ipsa, dolores nihil
+                    praesentium doloremque accusamus voluptate.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa est quas, facilis ratione enim
+                    nisi.
+                    Fugiat quaerat tempora iusto numquam eaque neque, nihil nesciunt molestiae hic accusamus, optio
+                    maiores?
+                  </p>
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit iure, nobis aliquam
+                    corporis
+                    eveniet mollitia quae, ipsa dolore at beatae, voluptatibus eos totam quas velit? Dolorum excepturi
+                    iure
+                    ipsam eius!</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos necessitatibus aliquid nobis a
+                    maxime
+                    quisquam laborum consectetur voluptates molestiae odio totam, itaque sunt maiores explicabo alias
+                    amet
+                    consequuntur reprehenderit! Id.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quasi alias quam rerum ab. Nobis
+                    maiores
+                    inventore possimus sit. Ducimus eveniet dignissimos incidunt veniam quibusdam facere sequi quidem
+                    laudantium necessitatibus!</p>
+                </div>
+              </section>
+              <section class="slide">
+                <h5 class="slide-title">Titulo de la seccion 8</h5>
+                <div class="slide-content">
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus suscipit accusantium quod
+                    ducimus
+                    delectus voluptate alias sunt repellat amet id consequatur pariatur numquam ratione aperiam impedit
+                    ad,
+                    voluptatum quidem autem.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta perferendis laborum eum ratione
+                    quasi
+                    dolore quidem magni sequi recusandae vitae quibusdam minus officiis, libero laboriosam alias,
+                    voluptatum
+                    incidunt exercitationem excepturi?</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae impedit officiis, magni debitis vero
+                    harum
+                    rerum vel in fugiat exercitationem laborum doloremque excepturi. Et minima nisi cupiditate mollitia
+                    numquam distinctio.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aliquam ad! Est exercitationem
+                    vitae,
+                    soluta facilis repellat laborum ipsum voluptatum deserunt, possimus debitis maxime perspiciatis, in
+                    dolorum at expedita. Beatae!</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur itaque repellat eligendi
+                    inventore,
+                    placeat totam perferendis enim dolorem necessitatibus quod, odit explicabo. Magnam harum quod
+                    consequuntur
+                    neque, ratione expedita veniam?</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem alias reprehenderit et? Optio,
+                    veritatis. Ab debitis mollitia, esse consectetur quasi quibusdam incidunt, earum ipsa, dolores nihil
+                    praesentium doloremque accusamus voluptate.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa est quas, facilis ratione enim
+                    nisi.
+                    Fugiat quaerat tempora iusto numquam eaque neque, nihil nesciunt molestiae hic accusamus, optio
+                    maiores?
+                  </p>
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit iure, nobis aliquam
+                    corporis
+                    eveniet mollitia quae, ipsa dolore at beatae, voluptatibus eos totam quas velit? Dolorum excepturi
+                    iure
+                    ipsam eius!</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos necessitatibus aliquid nobis a
+                    maxime
+                    quisquam laborum consectetur voluptates molestiae odio totam, itaque sunt maiores explicabo alias
+                    amet
+                    consequuntur reprehenderit! Id.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quasi alias quam rerum ab. Nobis
+                    maiores
+                    inventore possimus sit. Ducimus eveniet dignissimos incidunt veniam quibusdam facere sequi quidem
+                    laudantium necessitatibus!</p>
+                </div>
+              </section>
+              <section class="slide">
+                <h5 class="slide-title">Titulo de la seccion 9</h5>
+                <div class="slide-content">
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus suscipit accusantium quod
+                    ducimus
+                    delectus voluptate alias sunt repellat amet id consequatur pariatur numquam ratione aperiam impedit
+                    ad,
+                    voluptatum quidem autem.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta perferendis laborum eum ratione
+                    quasi
+                    dolore quidem magni sequi recusandae vitae quibusdam minus officiis, libero laboriosam alias,
+                    voluptatum
+                    incidunt exercitationem excepturi?</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae impedit officiis, magni debitis vero
+                    harum
+                    rerum vel in fugiat exercitationem laborum doloremque excepturi. Et minima nisi cupiditate mollitia
+                    numquam distinctio.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aliquam ad! Est exercitationem
+                    vitae,
+                    soluta facilis repellat laborum ipsum voluptatum deserunt, possimus debitis maxime perspiciatis, in
+                    dolorum at expedita. Beatae!</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur itaque repellat eligendi
+                    inventore,
+                    placeat totam perferendis enim dolorem necessitatibus quod, odit explicabo. Magnam harum quod
+                    consequuntur
+                    neque, ratione expedita veniam?</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem alias reprehenderit et? Optio,
+                    veritatis. Ab debitis mollitia, esse consectetur quasi quibusdam incidunt, earum ipsa, dolores nihil
+                    praesentium doloremque accusamus voluptate.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa est quas, facilis ratione enim
+                    nisi.
+                    Fugiat quaerat tempora iusto numquam eaque neque, nihil nesciunt molestiae hic accusamus, optio
+                    maiores?
+                  </p>
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit iure, nobis aliquam
+                    corporis
+                    eveniet mollitia quae, ipsa dolore at beatae, voluptatibus eos totam quas velit? Dolorum excepturi
+                    iure
+                    ipsam eius!</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos necessitatibus aliquid nobis a
+                    maxime
+                    quisquam laborum consectetur voluptates molestiae odio totam, itaque sunt maiores explicabo alias
+                    amet
+                    consequuntur reprehenderit! Id.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quasi alias quam rerum ab. Nobis
+                    maiores
+                    inventore possimus sit. Ducimus eveniet dignissimos incidunt veniam quibusdam facere sequi quidem
+                    laudantium necessitatibus!</p>
+                </div>
+              </section>
+              <section class="slide">
+                <h5 class="slide-title">Titulo de la seccion 10</h5>
+                <div class="slide-content">
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus suscipit accusantium quod
+                    ducimus
+                    delectus voluptate alias sunt repellat amet id consequatur pariatur numquam ratione aperiam impedit
+                    ad,
+                    voluptatum quidem autem.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta perferendis laborum eum ratione
+                    quasi
+                    dolore quidem magni sequi recusandae vitae quibusdam minus officiis, libero laboriosam alias,
+                    voluptatum
+                    incidunt exercitationem excepturi?</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae impedit officiis, magni debitis vero
+                    harum
+                    rerum vel in fugiat exercitationem laborum doloremque excepturi. Et minima nisi cupiditate mollitia
+                    numquam distinctio.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aliquam ad! Est exercitationem
+                    vitae,
+                    soluta facilis repellat laborum ipsum voluptatum deserunt, possimus debitis maxime perspiciatis, in
+                    dolorum at expedita. Beatae!</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur itaque repellat eligendi
+                    inventore,
+                    placeat totam perferendis enim dolorem necessitatibus quod, odit explicabo. Magnam harum quod
+                    consequuntur
+                    neque, ratione expedita veniam?</p>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem alias reprehenderit et? Optio,
+                    veritatis. Ab debitis mollitia, esse consectetur quasi quibusdam incidunt, earum ipsa, dolores nihil
+                    praesentium doloremque accusamus voluptate.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa est quas, facilis ratione enim
+                    nisi.
+                    Fugiat quaerat tempora iusto numquam eaque neque, nihil nesciunt molestiae hic accusamus, optio
+                    maiores?
+                  </p>
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit iure, nobis aliquam
+                    corporis
+                    eveniet mollitia quae, ipsa dolore at beatae, voluptatibus eos totam quas velit? Dolorum excepturi
+                    iure
+                    ipsam eius!</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos necessitatibus aliquid nobis a
+                    maxime
+                    quisquam laborum consectetur voluptates molestiae odio totam, itaque sunt maiores explicabo alias
+                    amet
+                    consequuntur reprehenderit! Id.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quasi alias quam rerum ab. Nobis
+                    maiores
+                    inventore possimus sit. Ducimus eveniet dignissimos incidunt veniam quibusdam facere sequi quidem
+                    laudantium necessitatibus!</p>
+                </div>
+              </section>
+            </article>
+          </details>
+        </div>
+        <div>
+          <h4>Ventana modal</h4>
+          <article id="modal-w" class="modal-window">
+            <h5 class="modal-title">Ventana Modal</h5>
+            <div class="modal-content">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, quod quam veniam animi nam maxime
+                velit id pariatur debitis laborum culpa impedit accusamus dolorum dicta voluptas quos deleniti
+                perspiciatis. Officia!</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, labore! Atque eaque, libero
+                perferendis eligendi eius eveniet neque exercitationem aut fugit deserunt quo dolorum officia nesciunt,
+                similique nisi molestias maxime?</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, error? Fugiat recusandae
+                aspernatur hic quisquam pariatur soluta quia corporis doloremque voluptatibus, facere animi? Quam soluta
+                beatae corrupti repellendus accusamus voluptatum?</p>
+            </div>
+            <a href="#cerra">Cerrar Modal</a>
+          </article>
+          <a href="#modal-w" class="modal-link">Abrir Modal</a>
+        </div>
+        <a href="#index">👆</a>
+      </section>
+      <hr>
+      <section id="colores">
+        <h3>Colores</h3>
+        <div>
+          <h4>rgb, hecadecimal(#fff), hsl</h4>
+          <p>rgb(255,0,0) <mark>[rgba(255 0 0 /.674)]</mark>|| #ff0000 => (#f00)</p>
+          <div class="colores-rgb-hexagecimal"></div>
+          <p>hsl(color, intensidad-grises, luminosidad--(blanco[100%] y negro[0%]));<br> hsla(hue, saturation,
+            lightness,
+            alpha);</p>
+          <img class="hsl-cologram"
+            src="https://codrops-1f606.kxcdn.com/codrops/wp-content/uploads/2015/01/hsl-color-wheel.png?x45784"
+            alt="hsl-colors">
+          <p>hsl(180, 100%,30%)</p>
+          <div class="color-hrs"></div>
+          <p><strong>Colores especiales</strong><br> transparent; currentColor(valor heredado de su antepasado que tenga
+            el color:)</p>
+        </div>
+        <a href="#index">👆</a>
+      </section>
+      <section id="unidades-medida">
+        <h3>Unidades de medida</h3>
+        <div>
+          <h4>unidades de medida</h4>
+          <pre>
+            Unidades de medida
+              1) Absolutas (Su valor no cambia, son unidades del mundo real)
+                pc, cm, mm, in, Q
+                pt(1/72in)
+                px(1/96in)
+              2) Relativas (Su valor es relativo a un contexto) em, rem, ex, ch - al tamaño de la fuente
+                em - basada en la anchura de la "m" de la fuente del elemento
+                rem - basada en la anchurad el la "m" de la fuente del elemento raiz (html)
+                ex - basada en la altura de la "x" de la fuente del elemento
+                ch - basada en la anchura del "0" de la fuente del elemento
+                % - al tamaño del contenedor
+              vw, wh, vmin, vmax - al tamaño del viewport
+                vw - ancho del viewport van de 1 a 100
+                vh - alto del viewport van de 1 a 100
+                vmax - entre vw y vh toma el que tenga mayor valor
+                vmin- entre vw y vh toma el que tenga menor valor
+              Conversiones entre unidades - http://pxtoem.com
+            </pre>
+        </div>
+        <a href="#index">👆</a>
+      </section>
+      <section class="variables_funciones">
+        <h3>Variables y funciones css</h3>
+        <div>
+          <h4>Variables</h4>
+          <pre>
+            <b style="color: #a5a">:root {
+            --main-color: 🟥#f00;
+            --fuente-pagina: 16px;
+            }
+            </b>
+          </pre>
+        </div>
+        <div>
+          <h4>Funciones</h4>
+          <pre>
+            .ch-10 {
+               --paddin-size: 3ch;
+              --num-ch: 10ch;
+              background-color: ⬛#000;
+              font-size: 1.5rem;
+              <b style="color: #a5a">padding: var(--paddin-size, (4ch)valor-en-caso-de-no-haber);
+              width: calc(var(--num-ch) + var(--paddin-size)*2);</b>
+            }
+          </pre>
+          <div class="ch-10">1234567890</div>
+        </div>
+        <div>
+          <h4>min(), max() & clamp()</h4>
+          <pre>
+
+            width: <b style="color: #a5a">min(300px, 20vw, 20rem);</b> // Toma el valor minimo solo 1, segun la ocacion
+            height: <b style="color: #a5a">max(200px, 25vh);</b> // Toma el valor mas grande igual que la anterior
+          </pre>
+          <pre>
+
+            h1{
+
+              /* font-size: clamp(valor-minimo,valor-ideal, valor-maximo);*/
+              <b style="color: #a5a">font-size: clamp(2rem, 1rem + 3vw, 3rem);</b>
+            }
+          </pre>
+        </div>
+        <div>
+          <h4>Font</h4>
+          <pre>
+
+            <b style="color: #a5a">
+              font-style: italic;
+              font-variant: small-caps;
+              font-weight: bold;
+              font-size: 32px;
+              line-height: 2;
+              font-family: sans-serif;</b>
+            font: italic small-caps bold 32px/2 sans-serif;
+
+            font-weight:
+              100 Thin
+              200 Extra Light
+              300 Light
+              400 Normal
+              500 Medium
+              600 Semi bold
+              700 Bold
+              800 Extra Bold
+              900 Ultra Bold
+            font-variant: Pasa todo a mayuscula - letra pequeña.
+              small-caps
+          </pre>
+        </div>
+        <a href="#index">👆</a>
+      </section>
+      <section id="tipografia">
+        <h3>Tipografia</h3>
+        <div>
+          <h4>Fuente externa e interna --- >url('')</h4>
+          <pre>
+
+            CSS:
+            <b style="color: #a59">@font-face {
+            font-family: Rubik;
+            src: url("../assets-JS/RubikBrokenFax-Regular.woff") format("woff");
+            font-display: swap;
+            }
+            .tip_import {
+            font-family: "Rubik", sans-serif;
+            font-size: 1.5rem;
+            }</b>
+
+           <b style="color: #0f0">/*</b> 
+            font-display:
+             auto - permite que el navegador utilice le metodo prederminado que suele ser block
+             block - oculta brevemente el texto hasta que la fuente haya sido descargada por completo
+             swap - indica al nacegador que utilice la fuente alternativa para mostrar el texto hasta que la fuente personalizada se
+             haya cargado por completo
+             fallback - es una mezcla de auto y swap
+             optional - ocultara el texto, luego lo cargara con la fuente alternativa finalmente aplicara la fuente personalizada
+            <b style="color: #0f0">*/</b>
+          </pre>
+          <div class="tip_import">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quibusdam architecto
+            natus nihil sed, error ex qui, laborum aliquam fugit tempore magni at quae! Saepe dolorum totam tenetur iste
+            voluptatum.</div>
+        </div>
+        <div>
+          <h4>Fuentes externas google</h4>
+          <pre>
+
+            HTML: 
+            <b style="color: #096">&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+            &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+            &lt;link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet"&gt;</b>
+            CSS:
+            <b style="color: #a59">.google_font {
+            font-family: "Single Day", cursive;
+            font-size: 1.5rem;
+            }</b>
+          </pre>
+          <div class="google_font">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero autem aliquid incidunt culpa, fuga iusto
+            aperiam
+            quas iure dicta ut sapiente, provident dolores suscipit tenetur ex iste eveniet aspernatur voluptatum!
+          </div>
+          <a href="#index">👆</a>
+      </section>
+      <section id="text">
+        <h3>Text</h3>
+        <pre>
+
+          text-align: ;
+          text-decoration: ;
+          text-indent: ;<b style="color: #00f">
+            overflow: hidden;
+            white-space: nowrap; ---- > funciona en conjunto[declarar ambas antes]
+          text-overflow: ;</b>
+          text-transform: ;
+          letter-spacing: ;
+          text-shadow: ;
+        </pre>
+        <pre style="color: #a5a">
+
+          .text {
+            box-shadow: 3px 5px 50px 1px #aaa;
+            text-shadow: 3px 4px 5px #ccc;
+            /* width: 200px;
+            height: 100px; */
+            padding: 20px;
+            border: thick solid #aaa;
+            /* text-align: center; */
+            text-align: left;
+            /* text-decoration: underline dashed #ddd; */
+            text-decoration: none;
+            text-indent: 3rem;<b style="color: #0f0">----- >    espaciado al principio asi</b>
+
+            overflow: hidden; <b style="color: #f00">Primero</b>
+            white-space: nowrap; <b style="color: #f00">Segundo</b>
+            text-overflow: ellipsis; <b style="color: #0f0">--- > termina con ... al no haber suficiente espaciado</b>, <b style="color: #f00">Es necesario el primero y segundo para que funcione este</b>
+
+            text-transform: uppercase; <b style="color: #0f0">---- > Pasa todo a mayuscula, (lowercase) a minuscula, (capitalize) primera letra de cada palabra en mayuscula</b> 
+            /* font-variant: small-caps; */ <b style="color: #0f0">--- > propiedad font[similar a la anterior] !== (Mayuscula pequeña)</b> 
+            letter-spacing: 5px;
+            white-space: pre; <b style="color: #f00">--- > Me respeta los espacios como en una etiqueta pre</b>
+            word-break: break-all; --- > cuando no llega a alcanzar una palabra larga y pasa a la siguiete dejandome un espacio en
+            blanco, ahi utilizo para romper la palabra.
+            word-spacing: 5px; --- > Funciona como letter-spacing, espaciado entre las palabras
+            writing-mode: horizontal-tb; --- > cambiar de orientacion, defecto(horizontal-tb); tambien tenemos vertical-lr y
+            vertical-rl 
+          }
+        </pre>
+        <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, neque, reiciendis hic cumque
+          sint non aliquid ipsa sequi quod voluptas nemo possimus dolores pariatur molestias odio in quidem quibusdam
+          est!</div>
+        <br>
+        <b>
+          <mark>A simple div with <code>--- >white-space: pre-wrap;</code></mark>
+        </b>
+        <div class="pre-like-code">
+          &lt;!DOCTYPE html&gt;
+          &lt;html lang="en"&gt;
+          &lt;head&gt;
+          &lt;meta charset="UTF-8"&gt;
+          &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+          &lt;title&gt;Document&lt;/title&gt;
+          &lt;/head&gt;
+          &lt;body&gt;
+          ....
+          &lt;/body&gt;
+          &lt;/html&gt;
+        </div>
+        <a href="#index">👆</a>
+      </section>
+      <section id="border-outline">
+        <h3>Border, border-radious and outline</h3>
+        <i class="gg-airplane"></i>
+        <div>
+          <h4>Border:</h4>
+          Normal.-
+          <pre>
+            border-top: 3px solid #000; ----- > Alternativa.
+            <b style="color: #a5a">border: 3px solid #493; ---- > Mas usada por todas partes</b></pre>
+          Forma.- eliptica
+          <pre>
+            border-radius: 2rem/4rem;
+            border-radius: 2rem 4rem 0rem 0rem /4rem 8rem 0rem 0rem;</pre>
+          <div class="leaf"></div>
+          <div class="apple"></div>
+          <br><br>
+        </div>
+        <div>
+          <h4>Outline</h4>
+          para outline-offset, se pude dar valores posivos tanto como negativos.
+          <pre>
+              outline: 4px solid #00f;
+              outline-offset: .5rem;
+              outline-offset: -2rem;</pre>
+          <div class="outline"></div>
+        </div>
+        <div>
+          <h4>Background:</h4>
+          <pre>
+            background-img: url('#');
+            background-color: ;
+            background-origin: content-box; ---- > similar a (box-sizing).
+            background-position: no-repeat;
+            background-position: center;
+            bckground-size: 10%, cover; ---- > O contains(imagen proporcional y nos deja espacios)
+            Background-attachment: scroll;
+            Background-attachment: fixed; ----- > similar a position;
+            background:    ;---- > NO ES RECOMENDABLE, quiza se pueda user en imagenes multiples y darle mas detalles como position, size etc.</pre>
+        </div>
+        <div>
+          <h4>Para img</h4>
+          <pre>
+            Object-fit: fill;(default) ----- > simirlar a background size.
+            Object-fit[cover, none, contain, scale-down];
+            scale-down: toma el valor que sea menor de los valores contain y none.
+            Object-position: 50% 50%;
+            Object-position: -50px center;
+            Object-position: left top;</pre>
+        </div>
+        <div>
+          <h4>Para listas</h4>
+          <pre>
+            list-style-type: aquare;
+            list-style-type: lower-roman;
+            list-style-type: decimal-leading-zero;
+            list-style-type: lower-greek;
+            list-style-type: none;
+            list-style-image: url('') ;--- > imagen como viñeta(orea el square o disc).
+            list-style-position: autside;--- > default. Tambien se puede inside---No se recomienda queda orrible
+            list-style: type, image, position; ---- se puede omitir la imagen</pre>
+          <pre>
+              <b style="color: #00a">Para usar imagenes como viñetas, de una mejor manera que list-style-type</b>
+              .list li::before {
+                content: '';
+                display: inline-block;
+                width: 1rem;
+                height: 1rem;
+                background-image: url('#');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+              }</pre>
+        </div>
+        <a href="#index">👆</a>
+      </section>
+      <section id="texto-columnas">
+        <h3>Texto en columas</h3>
+        <pre>
+          list-style-position: inside;
+          column-count: 4;
+          column-gap: 1rem;
+          column-rule: thin dotted #f00;
+          column-width: 100px; /* Tamaño minimo de anchura de la columna*/</pre>
+        <ol class="text-column-4">
+          <li>Mu de Aries</li>
+          <li>Aldebarandkd</li>
+          <li>djsldljkennnks</li>
+          <li>jjajjsjdjjdj</li>
+          <li>kkakkkskkks</li>
+          <li>lllsllellwll</li>
+          <li>yeyysyydyfy</li>
+          <li>iwiwiiiiiidi</li>
+          <li>sucuuuuuuuwuwu</li>
+          <li>rrurrurrrrrurr</li>
+          <li>wkwwwkwwkwwww</li>
+          <li>hhhhqhqhhqhqhhq</li>
+        </ol>
+        <article class="text-column-3">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita recusandae corrupti aut, provident
+            consequuntur voluptate eligendi error tempora a tempore necessitatibus maiores nihil ipsa ullam numquam vel
+            quisquam fugit iusto.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae aut numquam dignissimos dolore suscipit
+            assumenda veritatis corrupti, praesentium accusantium sit totam exercitationem unde tenetur placeat
+            voluptate mollitia? Quaerat, quibusdam recusandae!</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae aut numquam dignissimos dolore suscipit
+            assumenda veritatis corrupti, praesentium accusantium sit totam exercitationem unde tenetur placeat
+            voluptate mollitia? Quaerat, quibusdam recusandae!</p>
+        </article>
+        <a href="#index">👆</a>
+      </section>
+      <section id="tablas-css">
+        <h3>Tablas en CSS: </h3>
+        <span><b>Importante: </b>border-collapse; empty cells, border-spacing </span>
+        <pre>
+          .table{
+            font-size: 2rem;
+            border-collapse: collapse; /* separate, es por defecto*/
+            /* empty-cells: hide; -----> no funciona si esta en collapse; su valor por defecto es show*/
+          }
+          .table,th,td{
+            border: thin solid #000;
+            /* border-spacing: 2rem; ----> no funciona cuando esta en collapse la tabla; ( al darle valor 0 a border-spacing es como
+            collapse de la tabla pero mas grueso el borde*/
+          }</pre>
+        <table class="table">
+          <tr>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+          </tr>
+        </table>
+        <a href="#index">👆</a>
+      </section>
+      <article id="formulario-css">
+        <h3>Ejemplo de estilado :::::: Formulario de contacto: <mark>funcional</mark> </h3>
+        <div style="text-align: center;">
+          <img src="./assets-CSS/format.png" alt="format" width="200px">
+        </div>
+        <div
+          style="text-align: center; border: 2px solid #aaa; padding: 0; margin: 1rem 0;display: flex; justify-content: space-evenly; ">
+          <img src="./assets-CSS/form-style1.png" alt="form" width="300px">
+          <img src="./assets-CSS/form_style2.png" alt="form-chidren" width="300px">
+        </div>
+        <form class="concat-form" action="https://formsubmit.co/ivansfuerza@gmail.com" method="post">
+          <input type="text" name="name" placeholder="Name" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+            title="Nombre solo acepta letras y espacios en blanco" required>
+          <input type="email" name="email" placeholder="Correo" pattern="^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$">
+          <textarea name="comentary" placeholder="Escriba sus comentarios" cols="30" rows="10" required></textarea>
+          <input type="submit">
+        </form>
+        <a href="#index">👆</a>
+      </article>
+    </article>
+  </main>
+  <footer>
+    <hr>
+    <article id="more-info" class="selectores-atributos">
+      <h3>Mas informacion relevante</h3>
+      <a href="https://carontestudio.com/blog/como-poner-un-video-de-fondo-en-html/#Como_poner_video_de_fondo_en_HTML">Video
+        background</a><br>
+      <a class="menu item atributo_style button" href="https://cssreference.io/property/flex-basis/"
+        target="_blank">CSSreference</a>: uso de todos los atributos CSS<br>
+      <a href="http://tailwindcss.com/" target="_blank">Tailwind CSS</a>: framework CSS<br>
+      <a class="menu-bot bootstrap button" href="https://getbootstrap.com/docs/5.3/getting-started/introduction/"
+        target="_blank">Bootstrap</a>: framework
+      CSS<br>
+      <a href="http://codeguide.co/#css-syntax" target="_blank">Code Guide</a>: mejorar mi escritura HTML and CSS<br>
+      <a class="menu-algo algorithms button" href="https://the-algorithms.com/" target="_blank">The Algorithms</a>:
+      sintaxis de prueba<br>
+      <a href="#index" role="link">👆</a>
+    </article>
+    <article>
+      <div class="video"><video src="https://carontestudio.com/img/f4.mp4" width="800px" autoplay loop></video></div>
+    </article>
+  </footer>
+
+</body>
+
+</html>
